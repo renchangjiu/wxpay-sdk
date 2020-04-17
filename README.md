@@ -1,8 +1,8 @@
 ﻿# 微信支付官网的 [wxpay-sdk-3.0.9](https://pay.weixin.qq.com/wiki/doc/api/native.php?chapter=11_1) 版本, 有修改
 
-## 修改如下:
+## 1. 改动
 
-1. `WXPay` 类的默认签名类型改为MD5
+1. `WXPay` 类的默认签名类型改为 MD5
 
 2. `WXPayConfig` 类的抽象方法改成 public 修饰
 
@@ -11,40 +11,51 @@
 4. `WXPayConfig` 类增加了 `getWXPayDomain()` 方法的实现
 
 5. 修改了 `README` 文件的 `MyConfig` 类的示例
+
+## 2. maven 地址
+
+```xml
+<dependency>
+    <groupId>red.htt</groupId>
+    <artifactId>wxpay-sdk</artifactId>
+    <version>3.0.9</version>
+</dependency>
+```
+
 <br/>
 <br/>
 <br/>
 
 # 微信支付 Java SDK
 
-对[微信支付开发者文档](https://pay.weixin.qq.com/wiki/doc/api/index.html)中给出的API进行了封装。
+对[微信支付开发者文档](https://pay.weixin.qq.com/wiki/doc/api/index.html)中给出的 API 进行了封装。
 
-com.github.wxpay.sdk.WXPay类下提供了对应的方法：
+com.github.wxpay.sdk.WXPay 类下提供了对应的方法：
 
-|方法名 | 说明 |
-|--------|--------|
-|microPay| 刷卡支付 |
-|unifiedOrder | 统一下单|
-|orderQuery | 查询订单 |
-|reverse | 撤销订单 |
-|closeOrder|关闭订单|
-|refund|申请退款|
-|refundQuery|查询退款|
-|downloadBill|下载对账单|
-|report|交易保障|
-|shortUrl|转换短链接|
-|authCodeToOpenid|授权码查询openid|
+| 方法名           | 说明              |
+| ---------------- | ----------------- |
+| microPay         | 刷卡支付          |
+| unifiedOrder     | 统一下单          |
+| orderQuery       | 查询订单          |
+| reverse          | 撤销订单          |
+| closeOrder       | 关闭订单          |
+| refund           | 申请退款          |
+| refundQuery      | 查询退款          |
+| downloadBill     | 下载对账单        |
+| report           | 交易保障          |
+| shortUrl         | 转换短链接        |
+| authCodeToOpenid | 授权码查询 openid |
 
-* 注意:
-* 证书文件不能放在web服务器虚拟目录，应放在有访问权限控制的目录中，防止被他人下载
-* 建议将证书文件名改为复杂且不容易猜测的文件名
-* 商户服务器要做好病毒和木马防护工作，不被非法侵入者窃取证书文件
-* 请妥善保管商户支付密钥、公众帐号SECRET，避免密钥泄露
-* 参数为`Map<String, String>`对象，返回类型也是`Map<String, String>`
-* 方法内部会将参数会转换成含有`appid`、`mch_id`、`nonce_str`、`sign\_type`和`sign`的XML
-* 可选HMAC-SHA256算法和MD5算法签名
-* 通过HTTPS请求得到返回数据后会对其做必要的处理（例如验证签名，签名错误则抛出异常）
-* 对于downloadBill，无论是否成功都返回Map，且都含有`return_code`和`return_msg`，若成功，其中`return_code`为`SUCCESS`，另外`data`对应对账单数据
+- 注意:
+- 证书文件不能放在 web 服务器虚拟目录，应放在有访问权限控制的目录中，防止被他人下载
+- 建议将证书文件名改为复杂且不容易猜测的文件名
+- 商户服务器要做好病毒和木马防护工作，不被非法侵入者窃取证书文件
+- 请妥善保管商户支付密钥、公众帐号 SECRET，避免密钥泄露
+- 参数为`Map<String, String>`对象，返回类型也是`Map<String, String>`
+- 方法内部会将参数会转换成含有`appid`、`mch_id`、`nonce_str`、`sign\_type`和`sign`的 XML
+- 可选 HMAC-SHA256 算法和 MD5 算法签名
+- 通过 HTTPS 请求得到返回数据后会对其做必要的处理（例如验证签名，签名错误则抛出异常）
+- 对于 downloadBill，无论是否成功都返回 Map，且都含有`return_code`和`return_msg`，若成功，其中`return_code`为`SUCCESS`，另外`data`对应对账单数据
 
 ## 示例
 
@@ -144,6 +155,7 @@ public class WXPayExample {
 ```
 
 订单查询：
+
 ```java
 import com.github.wxpay.sdk.WXPay;
 
@@ -230,9 +242,10 @@ public class WXPayExample {
 }
 ```
 
-其他API的使用和上面类似。
+其他 API 的使用和上面类似。
 
-暂时不支持下载压缩格式的对账单，但可以使用该SDK生成请求用的XML数据：
+暂时不支持下载压缩格式的对账单，但可以使用该 SDK 生成请求用的 XML 数据：
+
 ```java
 import com.github.wxpay.sdk.WXPay;
 import com.github.wxpay.sdk.WXPayUtil;
@@ -264,6 +277,7 @@ public class WXPayExample {
 ```
 
 收到支付结果通知时，需要验证签名，可以这样做：
+
 ```java
 
 import com.github.wxpay.sdk.WXPay;
@@ -295,7 +309,8 @@ public class WXPayExample {
 }
 ```
 
-HTTPS请求可选HMAC-SHA256算法和MD5算法签名：
+HTTPS 请求可选 HMAC-SHA256 算法和 MD5 算法签名：
+
 ```
 import com.github.wxpay.sdk.WXPay;
 import com.github.wxpay.sdk.WXPayConstants;
@@ -310,7 +325,8 @@ public class WXPayExample {
 }
 ```
 
-若需要使用sandbox环境：
+若需要使用 sandbox 环境：
+
 ```
 import com.github.wxpay.sdk.WXPay;
 import com.github.wxpay.sdk.WXPayConstants;

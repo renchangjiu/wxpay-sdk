@@ -2,17 +2,27 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.github.wxpay</groupId>
+    <groupId>red.htt</groupId>
     <artifactId>wxpay-sdk</artifactId>
     <version>3.0.9</version>
+
     <name>wxpay-sdk</name>
     <description>wxpay sdk</description>
-    <url>https://pay.weixin.qq.com/wiki/doc/api/wxa/wxa_api.php?chapter=11_1</url>
+    <url>https://github.com/renchangjiu/wxpay-sdk</url>
+
+    <parent>
+        <groupId>org.sonatype.oss</groupId>
+        <artifactId>oss-parent</artifactId>
+        <version>7</version>
+    </parent>
 
     <properties>
         <project.build.sourceEncoding>utf-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>utf-8</project.reporting.outputEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
 
     <dependencies>
@@ -21,13 +31,11 @@
             <artifactId>httpclient</artifactId>
             <version>4.5.3</version>
         </dependency>
-
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
             <version>1.7.21</version>
         </dependency>
-
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-simple</artifactId>
@@ -43,29 +51,22 @@
         </license>
     </licenses>
 
+    <scm>
+        <tag>master</tag>
+        <url>git@github.com:renchangjiu/wxpay-sdk.git</url>
+        <connection>scm:git:git@github.com:renchangjiu/wxpay-sdk.git</connection>
+        <developerConnection>scm:git:git@github.com:renchangjiu/wxpay-sdk.git</developerConnection>
+    </scm>
+
     <developers>
         <developer>
-            <name>wxpay</name>
-            <email/>
-            <url>https://pay.weixin.qq.com/wiki/doc/api/wxa/wxa_api.php?chapter=11_1</url>
+            <name>mio</name>
+            <email>1359581862@qq.com</email>
+            <organization>red.htt</organization>
+            <url>https://github.com/renchangjiu/wxpay-sdk</url>
         </developer>
     </developers>
 
-    <profiles>
-        <profile>
-            <id>release</id>
-            <distributionManagement>
-                <snapshotRepository>
-                    <id>oss</id>
-                    <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-                </snapshotRepository>
-                <repository>
-                    <id>oss</id>
-                    <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-                </repository>
-            </distributionManagement>
-        </profile>
-    </profiles>
     <build>
         <plugins>
             <plugin>

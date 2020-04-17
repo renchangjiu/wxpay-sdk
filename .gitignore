@@ -16,6 +16,4 @@
 *.iml
 *.ipr
 
-
-/src/main/resources/cert/
-application-prod.properties
+README.local
