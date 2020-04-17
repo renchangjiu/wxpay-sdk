@@ -1,4 +1,4 @@
-﻿# 微信支付官网的 [wxpay-sdk-3.0.9](https://pay.weixin.qq.com/wiki/doc/api/native.php?chapter=11_1) 版本, 有修改
+﻿# 基于微信支付官网的 [wxpay-sdk-3.0.9](https://pay.weixin.qq.com/wiki/doc/api/native.php?chapter=11_1) 版本, 有修改
 
 ## 1. 改动
 
