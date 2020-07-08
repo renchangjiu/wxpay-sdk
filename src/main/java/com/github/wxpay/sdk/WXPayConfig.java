@@ -36,6 +36,13 @@ public abstract class WXPayConfig {
     public abstract String getNotifyUrl();
 
     /**
+     * 是否使用沙箱环境
+     *
+     * @return useSandbox
+     */
+    public abstract boolean useSandbox();
+
+    /**
      * 获取商户证书内容
      *
      * @return 商户证书内容

@@ -12,6 +12,8 @@
 
 5. 修改了 `README` 文件的 `MyConfig` 类的示例
 
+5. `WXPayConfig` 类增加方法: `public abstract boolean useSandbox();`
+
 ## 2. maven 地址
 
 ```xml
