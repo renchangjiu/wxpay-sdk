@@ -20,7 +20,7 @@
 <dependency>
     <groupId>red.htt</groupId>
     <artifactId>wxpay-sdk</artifactId>
-    <version>3.0.9</version>
+    <version>3.0.9.1</version>
 </dependency>
 ```
 
