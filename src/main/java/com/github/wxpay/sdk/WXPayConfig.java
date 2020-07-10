@@ -22,7 +22,7 @@ public abstract class WXPayConfig {
 
 
     /**
-     * 获取 API 密钥
+     * 获取 API 密钥 (注: 即使使用沙箱环境, 仍需返回真实密钥, 而不是沙箱密钥)
      *
      * @return API密钥
      */
